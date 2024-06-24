@@ -54,6 +54,4 @@ buttonPlus.addEventListener ('click', (event) => {
   
 }) ;
 
-
-
 // form.addEventListener ('click', (event) => {})
