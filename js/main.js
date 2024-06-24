@@ -1,5 +1,6 @@
 'use strict';
 
+//EJERCICIO 1
 const kittenOne = `<li class="card">
   <article>
     <img
@@ -40,3 +41,19 @@ const kittenThree = `<li class="card">
 </li>`;
 
 document.querySelector('.list').innerHTML = kittenOne + kittenTwo + kittenThree; 
+
+//EJERCICIO 2
+
+const buttonPlus = document.querySelector ('.js-btn-add');
+const form = document.querySelector ('.new-form');
+
+buttonPlus.addEventListener ('click', (event) => {
+  form.classList.add('collapsed'); //llamamos a la variable que contiene el formulario y le tenemos que añadir la clase de css con js que hace que el formulario desaparezca.
+  event.
+  form.classList.toggle('new-form'); 
+  
+}) ;
+
+
+
+// form.addEventListener ('click', (event) => {})
