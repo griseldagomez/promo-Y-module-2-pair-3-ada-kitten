@@ -50,20 +50,24 @@ const form = document.querySelector ('.new-form');
 buttonPlus.addEventListener ('click', (event) => {
   form.classList.add('collapsed'); //llamamos a la variable que contiene el formulario y le tenemos que añadir la clase de css con js que hace que el formulario desaparezca.
   event.
-  form.classList.toggle('new-form'); 
+  form.classList.toggle('new-form'); //nos quedamos por aqui, no sabemos como hacer que el formulario vuelva a desaparecer
   
 }) ;
 
 // form.addEventListener ('click', (event) => {})
 
+  
+
+  // EJERCICIO 3
+
 const input_search_desc = document.querySelector ('.js_in_search_desc');
 const button_search = document.querySelector ('.js-btn-search');
 
 button_search.addEventListener('click', () => {
-  const descrSearchText = input_search_desc.value;
+  const descrSearchText = input_search_desc.value;//el valor que queremos obtener (value) y las condiciones con el código a ejecutar siempre van dentro del evento. que en este caso seria, que cada vez que la usuaria le de a buscar, filtre el valor que ha escrito.
 
   if(kittenOne.includes(descrSearchText) ) {
-    kittenOne.classList.remove('collapsed');
+    kittenOne.classList.remove('collapsed'); //usamos la clase collapsed porque es la clase de css que hace que desaparezca
   } else {
     kittenOne.classList.add('collapsed');
   }
