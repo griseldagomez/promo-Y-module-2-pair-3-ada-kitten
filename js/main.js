@@ -55,3 +55,29 @@ buttonPlus.addEventListener ('click', (event) => {
 }) ;
 
 // form.addEventListener ('click', (event) => {})
+
+const input_search_desc = document.querySelector ('.js_in_search_desc');
+const button_search = document.querySelector ('.js-btn-search');
+
+button_search.addEventListener('click', () => {
+  const descrSearchText = input_search_desc.value;
+
+  if(kittenOne.includes(descrSearchText) ) {
+    kittenOne.classList.remove('collapsed');
+  } else {
+    kittenOne.classList.add('collapsed');
+  }
+  
+  if(kittenTwo.includes(descrSearchText) ) {
+    kittenTwo.classList.remove('collapsed');
+  } else {
+    kittenTwo.classList.add('collapsed');
+  }
+  
+  if(kittenThree.includes(descrSearchText) ){
+    kittenThree.classList.remove('collapsed');
+  } else {
+    kittenThree.classList.add('collapsed');
+  }
+});
+  
