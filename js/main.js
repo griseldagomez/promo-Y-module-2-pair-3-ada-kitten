@@ -1,48 +1,55 @@
 'use strict';
 
-//EJERCICIO 1
+//EJERCICO 1 eliminamos las listas de html y la añadimos a variables de js, y luego las añadimos al ul de html
+//EJERCICIO 4 sustituir con variables el contenido de las etiquetas de html que hemos guardado en variables en el ejercicio1. 
+
+const kittenImage1 = "https://dev.adalab.es/gato-siames.webp";
+const kittenName1 = "Anastacio";
+const kittenDesc1 = "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente."
+const kittenRace1 = "Siamés"
+
+const kittenImage2 = "https://dev.adalab.es/sphynx-gato.webp"
+const kittenName2 = "Fiona";
+const kittenDesc2 = "Produce fascinación y curiosidad. Exótico, raro, bello, extraño…hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.";
+const kittenRace2 = "Sphynx";
+
+const kittenImage3 = "https://dev.adalab.es/maine-coon-cat.webp"
+const kittenName3 = "Cielo";
+const kittenDesc3 = "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta. ";
+const kittenRace3 = "Maine Coon";
+
+
+
 const kittenOne = `<li class="card">
-  <article>
     <img
       class="card_img"
-      src="https://dev.adalab.es/gato-siames.webp"
+      src="${kittenImage1}"
       alt="siames-cat"
         />
-    <h3 class="card_title">Anastacio</h3>
-    <h4 class="card_race">Siamés</h4>
-    <p class="card_description">
-      Porte elegante, su patrón de color tan característico y sus ojos
-      de un azul intenso, pero su historia se remonta a Asía al menos
-      hace 500 años, donde tuvo su origen muy posiblemente.
-    </p>
-  </article>
+    <h3 class="card_title">${kittenName1}</h3>
+    <h4 class="card_race">${kittenRace1}</h4>
+    <p class="card_description"> ${kittenDesc1}</p>
 </li>`;
 
+
+
 const kittenTwo = `<li class="card">
-  <img class="card_img" src="https://dev.adalab.es/sphynx-gato.webp" alt="sphynx-cat">
-  <h3 class="card_title">Fiona</h3>
-  <h4 class="card_race">Sphynx</h4>
-  <p class="card_description">
-    Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
-    hasta con pinta de alienígena han llegado a definir a esta raza
-    gatuna que se caracteriza por la «ausencia» de pelo.
-  </p>
+  <img class="card_img" src="${kittenImage2}" alt="sphynx-cat">
+  <h3 class="card_title">${kittenName2}</h3>
+  <h4 class="card_race">${kittenRace2}</h4>
+  <p class="card_description">${kittenDesc2}</p>
 </li>`;
 
 const kittenThree = `<li class="card">        
-  <img class="card_img" src="https://dev.adalab.es/maine-coon-cat.webp" alt="maine-coon-cat">
-  <h3 class="card_title">Cielo</h3>
-  <h4 class="card_race">Maine Coon</h4>
-  <p class="card_description">
-    Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
-    bella mirada se ha convertido en una de sus señas de identidad.
-    Sus ojos son grandes y las orejas resultan largas y en punta.   
-  </p>          
+  <img class="card_img" src="${kittenImage3}" alt="maine-coon-cat">
+  <h3 class="card_title">${kittenName3}</h3>
+  <h4 class="card_race">${kittenRace3}</h4>
+  <p class="card_description">${kittenDesc3}</p>          
 </li>`;
 
 document.querySelector('.list').innerHTML = kittenOne + kittenTwo + kittenThree; 
 
-//EJERCICIO 2
+// EJERCICIO 2
 
 const buttonPlus = document.querySelector ('.js-btn-add');
 const form = document.querySelector ('.new-form');
@@ -56,7 +63,7 @@ buttonPlus.addEventListener ('click', (event) => {
 
 // form.addEventListener ('click', (event) => {})
 
-  
+
 
   // EJERCICIO 3
 
