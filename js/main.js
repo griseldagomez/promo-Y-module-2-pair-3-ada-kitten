@@ -66,6 +66,7 @@ button_search.addEventListener('click', () => {
     kittenOne.classList.remove('collapsed');
   } else {
     kittenOne.classList.add('collapsed');
+    console.log (word)
   }
   
   if(kittenTwo.includes(descrSearchText) ) {
