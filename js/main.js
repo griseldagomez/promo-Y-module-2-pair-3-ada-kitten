@@ -47,49 +47,76 @@ const kittenThree = `<li class="card">
   <p class="card_description">${kittenDesc3}</p>          
 </li>`;
 
-document.querySelector('.list').innerHTML = kittenOne + kittenTwo + kittenThree; 
+document.querySelector('.list').innerHTML = kittenOne + kittenTwo + kittenThree;
 
 // EJERCICIO 2
 
-const buttonPlus = document.querySelector ('.js-btn-add');
-const form = document.querySelector ('.new-form');
+// EJERCICIO 5 
+//Crear funciones manejadoras para añadir al evento del boton del formulario 
+const buttonPlus = document.querySelector('.js-btn-add');
+const form = document.querySelector('.new-form');
 
-buttonPlus.addEventListener ('click', (event) => {
-  form.classList.add('collapsed'); //llamamos a la variable que contiene el formulario y le tenemos que añadir la clase de css con js que hace que el formulario desaparezca.
-  event.
-  form.classList.toggle('new-form'); //nos quedamos por aqui, no sabemos como hacer que el formulario vuelva a desaparecer
-  
-}) ;
+
+function showNewCatForm() {
+  form.classList.remove('collapsed');
+} // esta funcion lo que hace es que el formulario aparezca
+function hideNewCatForm() {
+  form.classList.add('collapsed');
+}// Esta funcion lo que hace es que dessaparezca el formulario
+
+//esta es la funcion manejadora le estamos diciendo que ejecute con un condicional las funciones declaradas anteriomente: si el formulario contiene collapsed el form aparece y sino desaparece.
+function handleClickNewCatForm (event){
+  if (form.classList.contains('collapsed')) {
+    showNewCatForm()
+  } else {
+    hideNewCatForm()
+  }
+} 
+//el evento de click hace que cada ver que la usuaria hace click se ejecuta la funcion manejadora declarada anteriormente.
+buttonPlus.addEventListener('click', handleClickNewCatForm);
+
+
+
+  //form.classList.toggle('new-form');
+  //Cambiamos form classList.add ('collapsed') por form.classList.remove('collapsed'); para que cuando le demos click al botton el formulario aparezca y el toggle para que desaparezca.
+
+  // Esto es lo que hicimos en el dia del ejercicio.
+  //form.classList.add('collapsed'); //llamamos a la variable que contiene el formulario y le tenemos que añadir la clase de css con js que hace que el formulario desaparezca.
+
+  // event.
+  //form.classList.toggle('new-form'); //nos quedamos por aqui, no sabemos como hacer que el formulario vuelva a desaparecer
+
 
 // form.addEventListener ('click', (event) => {})
 
 
 
-  // EJERCICIO 3
+// EJERCICIO 3
 
-const input_search_desc = document.querySelector ('.js_in_search_desc');
-const button_search = document.querySelector ('.js-btn-search');
+const input_search_desc = document.querySelector('.js_in_search_desc');
+const button_search = document.querySelector('.js-btn-search');
 
 button_search.addEventListener('click', () => {
   const descrSearchText = input_search_desc.value;//el valor que queremos obtener (value) y las condiciones con el código a ejecutar siempre van dentro del evento. que en este caso seria, que cada vez que la usuaria le de a buscar, filtre el valor que ha escrito.
 
-  if(kittenOne.includes(descrSearchText) ) {
+  if (kittenOne.includes(descrSearchText)) {
     kittenOne.classList.remove('collapsed'); //usamos la clase collapsed porque es la clase de css que hace que desaparezca
   } else {
     kittenOne.classList.add('collapsed');
-    console.log (word)
+    console.log(word)
   }
-  
-  if(kittenTwo.includes(descrSearchText) ) {
+
+  if (kittenTwo.includes(descrSearchText)) {
     kittenTwo.classList.remove('collapsed');
   } else {
     kittenTwo.classList.add('collapsed');
   }
-  
-  if(kittenThree.includes(descrSearchText) ){
+
+  if (kittenThree.includes(descrSearchText)) {
     kittenThree.classList.remove('collapsed');
   } else {
     kittenThree.classList.add('collapsed');
   }
 });
-  
+
+
