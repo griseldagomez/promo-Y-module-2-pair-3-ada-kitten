@@ -91,32 +91,63 @@ buttonPlus.addEventListener('click', handleClickNewCatForm);
 
 
 
+
+
+//EJERCICIO 6
+
+
+const input_search_desc = document.querySelector('.js_in_search_desc'); //seleccionamos de html el input buscar
+const button_search = document.querySelector('.js-btn-search'); //seleccionamos el boton de buscar
+const listElement = document.querySelector('.js-list-kitten'); // seleccionamos el ul que contiene la lista de todos los gatos
+
+//creamos funcion manejadora para pasarlo como argumento al evento y que se ejecute el código que hay dentro
+
+const handleFilterKitten = (event) => {
+  event.preventDefault()
+ 
+  const descrSearchText = input_search_desc.value; //creamos una variable que guarda el valor que escriba la usuaria en el input de descripcion
+  
+  if (kittenDesc1.includes (descrSearchText)){ //si la descripcion incluye la palabra que busca la usuaria en el input
+    listElement.innerHTML = kittenOne;//el resultado será que aparezca el gato uno
+  } 
+  if (kittenDesc2.includes (descrSearchText)){
+    listElement.innerHTML = kittenTwo;
+  } 
+  if (kittenDesc3.includes (descrSearchText)) {
+    listElement.innerHTML = kittenThree;
+  }
+};
+
+button_search.addEventListener('click', handleFilterKitten); //evento que contiene como argumentos el click y la funcion manejadora, es decir, que cuando la usuaria haga click, se ejecuta la funcion declarada antes
+
+//Siempre nos muestra el gato uno, porque pone en la conslola que descrsearchtext es siempre elegante.
+
+
+
+
+
+
 // EJERCICIO 3
+//   const descrSearchText = input_search_desc.value;//el valor que queremos obtener (value) y las condiciones con el código a ejecutar siempre van dentro del evento. que en este caso seria, que cada vez que la usuaria le de a buscar, filtre el valor que ha escrito.
 
-const input_search_desc = document.querySelector('.js_in_search_desc');
-const button_search = document.querySelector('.js-btn-search');
+//   if (kittenOne.includes(descrSearchText)) {
+//     kittenOne.classList.remove('collapsed'); //usamos la clase collapsed porque es la clase de css que hace que desaparezca
+//   } else {
+//     kittenOne.classList.add('collapsed');
+//     console.log(word)
+//   }
 
-button_search.addEventListener('click', () => {
-  const descrSearchText = input_search_desc.value;//el valor que queremos obtener (value) y las condiciones con el código a ejecutar siempre van dentro del evento. que en este caso seria, que cada vez que la usuaria le de a buscar, filtre el valor que ha escrito.
+//   if (kittenTwo.includes(descrSearchText)) {
+//     kittenTwo.classList.remove('collapsed');
+//   } else {
+//     kittenTwo.classList.add('collapsed');
+//   }
 
-  if (kittenOne.includes(descrSearchText)) {
-    kittenOne.classList.remove('collapsed'); //usamos la clase collapsed porque es la clase de css que hace que desaparezca
-  } else {
-    kittenOne.classList.add('collapsed');
-    console.log(word)
-  }
-
-  if (kittenTwo.includes(descrSearchText)) {
-    kittenTwo.classList.remove('collapsed');
-  } else {
-    kittenTwo.classList.add('collapsed');
-  }
-
-  if (kittenThree.includes(descrSearchText)) {
-    kittenThree.classList.remove('collapsed');
-  } else {
-    kittenThree.classList.add('collapsed');
-  }
-});
+//   if (kittenThree.includes(descrSearchText)) {
+//     kittenThree.classList.remove('collapsed');
+//   } else {
+//     kittenThree.classList.add('collapsed');
+//   }
+// });
 
 
