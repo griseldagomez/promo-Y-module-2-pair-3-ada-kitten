@@ -154,13 +154,13 @@ const handleFilterKitten = (event) => {
   console.log(descrSearchText);
   
   if (kittenData_1.desc.includes (descrSearchText)){ //si la descripcion incluye la palabra que busca la usuaria en el input
-    listElement.innerHTML = renderKitten(kittenData_1);//el resultado será que aparezca el gato uno
+    listElement = renderKitten(kittenData_1);//el resultado será que aparezca el gato uno
   } 
   if (kittenData_2.desc.includes (descrSearchText)){
-    listElement.innerHTML = kittenTwo;
+    listElement = renderKitten(kittenData_2);
   } 
   if (kittenData_3.desc.includes (descrSearchText)) {
-    listElement.innerHTML = kittenThree;
+    listElement = renderKitten(kittenData_3);
   }
 };
 
