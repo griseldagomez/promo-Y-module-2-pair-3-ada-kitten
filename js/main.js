@@ -5,7 +5,7 @@
 const listElement = document.querySelector('.js-list-kitten');
 
 const renderKitten = (kittenData) => {
-  listElement.innerHTML += 
+  listElement.innerHTML +=
   `<li class="card">
     <img
       class="card_img"
@@ -44,6 +44,7 @@ const kittenData_3 = {
 renderKitten(kittenData_1);
 renderKitten(kittenData_2);
 renderKitten(kittenData_3); 
+
 
 //EJERCICO 1 eliminamos las listas de html y la añadimos a variables de js, y luego las añadimos al ul de html
 //EJERCICIO 4 sustituir con variables el contenido de las etiquetas de html que hemos guardado en variables en el ejercicio1. 
@@ -147,20 +148,22 @@ const button_search = document.querySelector('.js-btn-search'); //seleccionamos 
 
 //creamos funcion manejadora para pasarlo como argumento al evento y que se ejecute el código que hay dentro
 
+
 const handleFilterKitten = (event) => {
   event.preventDefault()
  
   const descrSearchText = input_search_desc.value; //creamos una variable que guarda el valor que escriba la usuaria en el input de descripcion
   console.log(descrSearchText);
   
-  if (kittenData_1.desc.includes (descrSearchText)){ //si la descripcion incluye la palabra que busca la usuaria en el input
-    listElement = renderKitten(kittenData_1);//el resultado será que aparezca el gato uno
+  listElement.innerHTML = '';// SE VACIA LA LISTA POR QUE SINO SE SIGUEN AGREGANDO GATOS A LA LISTA 
+  if (kittenData_1.desc.includes (descrSearchText)){          //si la descripcion incluye la palabra que busca la usuaria en el input
+    renderKitten(kittenData_1);  
   } 
   if (kittenData_2.desc.includes (descrSearchText)){
-    listElement = renderKitten(kittenData_2);
+    renderKitten(kittenData_2);
   } 
   if (kittenData_3.desc.includes (descrSearchText)) {
-    listElement = renderKitten(kittenData_3);
+     renderKitten(kittenData_3);
   }
 };
 
