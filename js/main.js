@@ -1,53 +1,98 @@
 'use strict';
 
+//EJERCICIO 7: crear un objeto por cada gatito con 
+
+const listElement = document.querySelector('.js-list-kitten');
+
+const renderKitten = (kittenData) => {
+  listElement.innerHTML += 
+  `<li class="card">
+    <img
+      class="card_img"
+      src="${kittenData.image}"
+      alt="cat"
+        />
+    <h3 class="card_title">${kittenData.name}</h3>
+    <h4 class="card_race">${kittenData.race}</h4>
+    <p class="card_description"> ${kittenData.desc}</p>
+</li>`;
+
+}
+
+const kittenData_1 = {
+  image: "https://dev.adalab.es/gato-siames.webp",
+  name: "Anastacio",
+  desc: "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.",
+  race: "Siamés",
+
+};
+
+
+const kittenData_2 = {
+  image: "https://dev.adalab.es/sphynx-gato.webp",
+  name: "Fiona",
+  desc: "Produce fascinación y curiosidad. Exótico, raro, bello, extraño…hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.",
+  race: "Sphynx"
+};
+
+const kittenData_3 = {
+  image: "https://dev.adalab.es/maine-coon-cat.webp",
+  name: "Cielo",
+  desc: "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta. ",
+  race: "Maine Coon"
+}
+renderKitten(kittenData_1);
+renderKitten(kittenData_2);
+renderKitten(kittenData_3); 
+
 //EJERCICO 1 eliminamos las listas de html y la añadimos a variables de js, y luego las añadimos al ul de html
 //EJERCICIO 4 sustituir con variables el contenido de las etiquetas de html que hemos guardado en variables en el ejercicio1. 
 
-const kittenImage1 = "https://dev.adalab.es/gato-siames.webp";
-const kittenName1 = "Anastacio";
-const kittenDesc1 = "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente."
-const kittenRace1 = "Siamés"
+// const kittenImage1 = "https://dev.adalab.es/gato-siames.webp";
+// const kittenName1 = "Anastacio";
+// const kittenDesc1 = "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente."
+// const kittenRace1 = "Siamés"
 
-const kittenImage2 = "https://dev.adalab.es/sphynx-gato.webp"
-const kittenName2 = "Fiona";
-const kittenDesc2 = "Produce fascinación y curiosidad. Exótico, raro, bello, extraño…hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.";
-const kittenRace2 = "Sphynx";
+// const kittenImage2 = "https://dev.adalab.es/sphynx-gato.webp"
+// const kittenName2 = "Fiona";
+// const kittenDesc2 = "Produce fascinación y curiosidad. Exótico, raro, bello, extraño…hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.";
+// const kittenRace2 = "Sphynx";
 
-const kittenImage3 = "https://dev.adalab.es/maine-coon-cat.webp"
-const kittenName3 = "Cielo";
-const kittenDesc3 = "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta. ";
-const kittenRace3 = "Maine Coon";
-
-
-
-const kittenOne = `<li class="card">
-    <img
-      class="card_img"
-      src="${kittenImage1}"
-      alt="siames-cat"
-        />
-    <h3 class="card_title">${kittenName1}</h3>
-    <h4 class="card_race">${kittenRace1}</h4>
-    <p class="card_description"> ${kittenDesc1}</p>
-</li>`;
+// const kittenImage3 = "https://dev.adalab.es/maine-coon-cat.webp"
+// const kittenName3 = "Cielo";
+// const kittenDesc3 = "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta. ";
+// const kittenRace3 = "Maine Coon";
 
 
 
-const kittenTwo = `<li class="card">
-  <img class="card_img" src="${kittenImage2}" alt="sphynx-cat">
-  <h3 class="card_title">${kittenName2}</h3>
-  <h4 class="card_race">${kittenRace2}</h4>
-  <p class="card_description">${kittenDesc2}</p>
-</li>`;
+// const kittenOne = `<li class="card">
+//     <img
+//       class="card_img"
+//       src="${kittenImage1}"
+//       alt="siames-cat"
+//         />
+//     <h3 class="card_title">${kittenName1}</h3>
+//     <h4 class="card_race">${kittenRace1}</h4>
+//     <p class="card_description"> ${kittenDesc1}</p>
+// </li>`;
 
-const kittenThree = `<li class="card">        
-  <img class="card_img" src="${kittenImage3}" alt="maine-coon-cat">
-  <h3 class="card_title">${kittenName3}</h3>
-  <h4 class="card_race">${kittenRace3}</h4>
-  <p class="card_description">${kittenDesc3}</p>          
-</li>`;
 
-document.querySelector('.list').innerHTML = kittenOne + kittenTwo + kittenThree;
+
+// const kittenTwo = `<li class="card">
+//   <img class="card_img" src="${kittenImage2}" alt="sphynx-cat">
+//   <h3 class="card_title">${kittenName2}</h3>
+//   <h4 class="card_race">${kittenRace2}</h4>
+//   <p class="card_description">${kittenDesc2}</p>
+// </li>`;
+
+// const kittenThree = `<li class="card">        
+//   <img class="card_img" src="${kittenImage3}" alt="maine-coon-cat">
+//   <h3 class="card_title">${kittenName3}</h3>
+//   <h4 class="card_race">${kittenRace3}</h4>
+//   <p class="card_description">${kittenDesc3}</p>          
+// </li>`;
+
+// document.querySelector('.list').innerHTML = kittenOne + kittenTwo + kittenThree;
 
 // EJERCICIO 2
 
@@ -98,7 +143,7 @@ buttonPlus.addEventListener('click', handleClickNewCatForm);
 
 const input_search_desc = document.querySelector('.js_in_search_desc'); //seleccionamos de html el input buscar
 const button_search = document.querySelector('.js-btn-search'); //seleccionamos el boton de buscar
-const listElement = document.querySelector('.js-list-kitten'); // seleccionamos el ul que contiene la lista de todos los gatos
+ // seleccionamos el ul que contiene la lista de todos los gatos
 
 //creamos funcion manejadora para pasarlo como argumento al evento y que se ejecute el código que hay dentro
 
@@ -106,14 +151,15 @@ const handleFilterKitten = (event) => {
   event.preventDefault()
  
   const descrSearchText = input_search_desc.value; //creamos una variable que guarda el valor que escriba la usuaria en el input de descripcion
+  console.log(descrSearchText);
   
-  if (kittenDesc1.includes (descrSearchText)){ //si la descripcion incluye la palabra que busca la usuaria en el input
-    listElement.innerHTML = kittenOne;//el resultado será que aparezca el gato uno
+  if (kittenData_1.desc.includes (descrSearchText)){ //si la descripcion incluye la palabra que busca la usuaria en el input
+    listElement.innerHTML = renderKitten(kittenData_1);//el resultado será que aparezca el gato uno
   } 
-  if (kittenDesc2.includes (descrSearchText)){
+  if (kittenData_2.desc.includes (descrSearchText)){
     listElement.innerHTML = kittenTwo;
   } 
-  if (kittenDesc3.includes (descrSearchText)) {
+  if (kittenData_3.desc.includes (descrSearchText)) {
     listElement.innerHTML = kittenThree;
   }
 };
