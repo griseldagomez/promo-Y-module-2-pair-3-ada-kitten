@@ -165,10 +165,7 @@ const handleFilterKitten = (event) => {
   if (kittenData_3.desc.includes (descrSearchText)) {
      renderKitten(kittenData_3);
   }
-};
-
-button_search.addEventListener('click', handleFilterKitten); //evento que contiene como argumentos el click y la funcion manejadora, es decir, que cuando la usuaria haga click, se ejecuta la funcion declarada antes
-
+};  
 //Siempre nos muestra el gato uno, porque pone en la conslola que descrsearchtext es siempre elegante.
 
 
