@@ -1,23 +1,9 @@
 'use strict';
+//EJERCICIO 8: Crear un array con los objetos de los gatitos.
 
 //EJERCICIO 7: crear un objeto por cada gatito con 
 
-const listElement = document.querySelector('.js-list-kitten');
 
-const renderKitten = (kittenData) => {
-  listElement.innerHTML +=
-  `<li class="card">
-    <img
-      class="card_img"
-      src="${kittenData.image}"
-      alt="cat"
-        />
-    <h3 class="card_title">${kittenData.name}</h3>
-    <h4 class="card_race">${kittenData.race}</h4>
-    <p class="card_description"> ${kittenData.desc}</p>
-</li>`;
-
-}
 
 const kittenData_1 = {
   image: "https://dev.adalab.es/gato-siames.webp",
@@ -26,7 +12,6 @@ const kittenData_1 = {
   race: "Siamés",
 
 };
-
 
 const kittenData_2 = {
   image: "https://dev.adalab.es/sphynx-gato.webp",
@@ -41,9 +26,28 @@ const kittenData_3 = {
   desc: "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta. ",
   race: "Maine Coon"
 }
-renderKitten(kittenData_1);
-renderKitten(kittenData_2);
-renderKitten(kittenData_3); 
+
+const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
+
+const listElement = document.querySelector('.js-list-kitten');
+const renderKitten = (kittenData) => {
+  listElement.innerHTML +=
+    `<li class="card">
+    <img
+      class="card_img"
+      src="${kittenData.image}"
+      alt="cat"
+        />
+    <h3 class="card_title">${kittenData.name}</h3>
+    <h4 class="card_race">${kittenData.race}</h4>
+    <p class="card_description"> ${kittenData.desc}</p>
+</li>`;
+}
+
+renderKitten(kittenDataList[0]) + renderKitten(kittenDataList[1]) + renderKitten(kittenDataList[2]);
+
+
+
 
 
 //EJERCICO 1 eliminamos las listas de html y la añadimos a variables de js, y luego las añadimos al ul de html
@@ -111,26 +115,26 @@ function hideNewCatForm() {
 }// Esta funcion lo que hace es que dessaparezca el formulario
 
 //esta es la funcion manejadora le estamos diciendo que ejecute con un condicional las funciones declaradas anteriomente: si el formulario contiene collapsed el form aparece y sino desaparece.
-function handleClickNewCatForm (event){
+function handleClickNewCatForm(event) {
   if (form.classList.contains('collapsed')) {
     showNewCatForm()
   } else {
     hideNewCatForm()
   }
-} 
+}
 //el evento de click hace que cada ver que la usuaria hace click se ejecuta la funcion manejadora declarada anteriormente.
 buttonPlus.addEventListener('click', handleClickNewCatForm);
 
 
 
-  //form.classList.toggle('new-form');
-  //Cambiamos form classList.add ('collapsed') por form.classList.remove('collapsed'); para que cuando le demos click al botton el formulario aparezca y el toggle para que desaparezca.
+//form.classList.toggle('new-form');
+//Cambiamos form classList.add ('collapsed') por form.classList.remove('collapsed'); para que cuando le demos click al botton el formulario aparezca y el toggle para que desaparezca.
 
-  // Esto es lo que hicimos en el dia del ejercicio.
-  //form.classList.add('collapsed'); //llamamos a la variable que contiene el formulario y le tenemos que añadir la clase de css con js que hace que el formulario desaparezca.
+// Esto es lo que hicimos en el dia del ejercicio.
+//form.classList.add('collapsed'); //llamamos a la variable que contiene el formulario y le tenemos que añadir la clase de css con js que hace que el formulario desaparezca.
 
-  // event.
-  //form.classList.toggle('new-form'); //nos quedamos por aqui, no sabemos como hacer que el formulario vuelva a desaparecer
+// event.
+//form.classList.toggle('new-form'); //nos quedamos por aqui, no sabemos como hacer que el formulario vuelva a desaparecer
 
 
 // form.addEventListener ('click', (event) => {})
@@ -144,26 +148,26 @@ buttonPlus.addEventListener('click', handleClickNewCatForm);
 
 const input_search_desc = document.querySelector('.js_in_search_desc'); //seleccionamos de html el input buscar
 const button_search = document.querySelector('.js-btn-search'); //seleccionamos el boton de buscar
- // seleccionamos el ul que contiene la lista de todos los gatos
+// seleccionamos el ul que contiene la lista de todos los gatos
 
 //creamos funcion manejadora para pasarlo como argumento al evento y que se ejecute el código que hay dentro
 
 
 const handleFilterKitten = (event) => {
   event.preventDefault()
- 
+
   const descrSearchText = input_search_desc.value; //creamos una variable que guarda el valor que escriba la usuaria en el input de descripcion
   console.log(descrSearchText);
-  
-  listElement.innerHTML = '';// SE VACIA LA LISTA POR QUE SINO SE SIGUEN AGREGANDO GATOS A LA LISTA 
-  if (kittenData_1.desc.includes (descrSearchText)){          //si la descripcion incluye la palabra que busca la usuaria en el input
-    renderKitten(kittenData_1);  
-  } 
-  if (kittenData_2.desc.includes (descrSearchText)){
-    renderKitten(kittenData_2);
-  } 
-  if (kittenData_3.desc.includes (descrSearchText)) {
-     renderKitten(kittenData_3);
+
+  listElement.innerHTML = '';// SE VACIA LA LISTA PORQUE SINO SE SIGUEN AGREGANDO GATOS A LA LISTA 
+  if (kittenDataList[0].desc.includes(descrSearchText)) {          //si la descripcion incluye la palabra que busca la usuaria en el input
+    renderKitten(kittenDataList[0]);
+  }
+  if (kittenDataList[1].desc.includes(descrSearchText)) {
+    renderKitten(kittenDataList[1]);
+  }
+  if (kittenDataList[2].desc.includes(descrSearchText)) {
+    renderKitten(kittenDataList[2]);
   }
 };  
 //Siempre nos muestra el gato uno, porque pone en la conslola que descrsearchtext es siempre elegante.
