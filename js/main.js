@@ -1,7 +1,7 @@
 'use strict';
 //EJERCICIO 8: Crear un array con los objetos de los gatitos.
 
-//EJERCICIO 7: crear un objeto por cada gatito con 
+//EJERCICIO 7: crear un objeto por cada gatito con
 
 
 
@@ -30,6 +30,7 @@ const kittenData_3 = {
 const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
 
 const listElement = document.querySelector('.js-list-kitten');
+
 const renderKitten = (kittenData) => {
   listElement.innerHTML +=
     `<li class="card">
@@ -44,14 +45,24 @@ const renderKitten = (kittenData) => {
 </li>`;
 }
 
-renderKitten(kittenDataList[0]) + renderKitten(kittenDataList[1]) + renderKitten(kittenDataList[2]);
+//renderKitten(kittenDataList[0]) + renderKitten(kittenDataList[1]) + renderKitten(kittenDataList[2]);
+
+// EJERCICIO 9: hacer un bucle para iterar sobre el listado de gatitos.
+
+function renderKittens () { // funcion nueva para meter el bucle
+  for(const kittenItem of kittenDataList) { //bucle for of: cada kittenItem se refiere a cada elemento del array kittendatalist
+    renderKitten(kittenItem); // llamamos a la funcion declarada anteriormente pasandole como parametro cada gato, kittenitem
+  }
+}
+renderKittens(); //llamamos a la funcion para que se ejecute el bucle y aparezcan los gatos
+
 
 
 
 
 
 //EJERCICO 1 eliminamos las listas de html y la añadimos a variables de js, y luego las añadimos al ul de html
-//EJERCICIO 4 sustituir con variables el contenido de las etiquetas de html que hemos guardado en variables en el ejercicio1. 
+//EJERCICIO 4 sustituir con variables el contenido de las etiquetas de html que hemos guardado en variables en el ejercicio1.
 
 // const kittenImage1 = "https://dev.adalab.es/gato-siames.webp";
 // const kittenName1 = "Anastacio";
@@ -90,19 +101,19 @@ renderKitten(kittenDataList[0]) + renderKitten(kittenDataList[1]) + renderKitten
 //   <p class="card_description">${kittenDesc2}</p>
 // </li>`;
 
-// const kittenThree = `<li class="card">        
+// const kittenThree = `<li class="card">
 //   <img class="card_img" src="${kittenImage3}" alt="maine-coon-cat">
 //   <h3 class="card_title">${kittenName3}</h3>
 //   <h4 class="card_race">${kittenRace3}</h4>
-//   <p class="card_description">${kittenDesc3}</p>          
+//   <p class="card_description">${kittenDesc3}</p>
 // </li>`;
 
 // document.querySelector('.list').innerHTML = kittenOne + kittenTwo + kittenThree;
 
 // EJERCICIO 2
 
-// EJERCICIO 5 
-//Crear funciones manejadoras para añadir al evento del boton del formulario 
+// EJERCICIO 5
+//Crear funciones manejadoras para añadir al evento del boton del formulario
 const buttonPlus = document.querySelector('.js-btn-add');
 const form = document.querySelector('.new-form');
 
@@ -153,23 +164,37 @@ const button_search = document.querySelector('.js-btn-search'); //seleccionamos 
 //creamos funcion manejadora para pasarlo como argumento al evento y que se ejecute el código que hay dentro
 
 
-const handleFilterKitten = (event) => {
+function FilterKitten  (event) {
   event.preventDefault()
 
   const descrSearchText = input_search_desc.value; //creamos una variable que guarda el valor que escriba la usuaria en el input de descripcion
   console.log(descrSearchText);
 
-  listElement.innerHTML = '';// SE VACIA LA LISTA PORQUE SINO SE SIGUEN AGREGANDO GATOS A LA LISTA 
-  if (kittenDataList[0].desc.includes(descrSearchText)) {          //si la descripcion incluye la palabra que busca la usuaria en el input
-    renderKitten(kittenDataList[0]);
+  listElement.innerHTML = '';// SE VACIA LA LISTA PORQUE SINO SE SIGUEN AGREGANDO GATOS A LA LISTA
+  for (const kittenItem of kittenDataList){
+     if (kittenItem.desc.includes(descrSearchText)) {
+     renderKitten(kittenItem);
+     }
+    
+     
+           
   }
-  if (kittenDataList[1].desc.includes(descrSearchText)) {
-    renderKitten(kittenDataList[1]);
-  }
-  if (kittenDataList[2].desc.includes(descrSearchText)) {
-    renderKitten(kittenDataList[2]);
-  }
-};  
+    
+   
+
+}
+
+button_search.addEventListener('click', FilterKitten);
+//   if (kittenDataList[0].desc.includes(descrSearchText)) {          //si la descripcion incluye la palabra que busca la usuaria en el input
+//     renderKitten(kittenDataList[0]);
+//   }
+  // if (kittenDataList[1].desc.includes(descrSearchText)) {
+  //   renderKitten(kittenDataList[1]);
+  // }
+//   if (kittenDataList[2].desc.includes(descrSearchText)) {
+//     renderKitten(kittenDataList[2]);
+//   }
+// };
 //Siempre nos muestra el gato uno, porque pone en la conslola que descrsearchtext es siempre elegante.
 
 
